@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
 </head>
 <body class="p-5 bg-gray-100">
     <h1 class="text-3xl text-center">
@@ -30,6 +33,10 @@
     
     </div>
 
+<!--     
+    <div id="map" class="mx-20 h-96 drop-shadow-md bg-white rounded-lg mt-10">
+
+    </div> -->
 
 
 
@@ -58,7 +65,7 @@
     <div id="blog" class="mx-20 drop-shadow-md bg-white rounded-lg mt-10 bg-[url('/sahara1.jpg')] bg-cover bg-center">
         <div class="rounded-lg bg-gray-900 bg-opacity-50">
             <div class="text-center w-full p-20 py-36">
-                <a class="px-10 py-5 bg-slate-500 text-white rounded-full" href="">Visit my blog</a>
+                <a class="px-10 py-5 bg-slate-500 text-white rounded-full" href="/blog.html">Visit my blog</a>
             </div>    
         </div>
     
@@ -80,5 +87,20 @@
             Content...
         </span>
     </div> -->
+
+    <script>
+
+        var map = L.map('map').setView([51.505, -0.09], 13);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([51.5, -0.09]).addTo(map)
+            .bindPopup('A pretty CSS popup.<br> Easily customizable.')
+            .openPopup();
+
+        console.log("done!")
+    </script>
 </body>
 </html>
